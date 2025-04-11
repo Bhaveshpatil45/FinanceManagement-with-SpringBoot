@@ -3,20 +3,31 @@ package com.personal_Finance_Management_System.Personal_finance_management_Syste
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "transactions")
 public class Transaction {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private double amount;
+    @Column(nullable = false)
+    private Double amount;
 
-    private String type;
+    @Column(nullable = false)
+    private String type; // Income or Expense
 
+    @Column(nullable = false)
     private String category;
 
+    @Column(nullable = false)
     private LocalDate date;
 
+    @Column
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Transaction() {}

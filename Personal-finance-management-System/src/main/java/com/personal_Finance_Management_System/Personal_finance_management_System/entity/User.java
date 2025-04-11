@@ -1,20 +1,31 @@
 package com.personal_Finance_Management_System.Personal_finance_management_System.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(nullable = false, unique = true)
     private String username;
 
-    private  String password;
+    @Column(nullable = false)
+    private String password;
 
+    @Column(nullable = false, unique = true)
     private String email;
 
-    public User(String username, long id, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
+    @Column(nullable = false)
+    private String role; // e.g., ADMIN, USER
+
+    @Column(nullable = false)
+    private boolean active = true;
+
+    public User() {}
 
     public User(String username, String encodedPassword, String email, String user) {
     }
