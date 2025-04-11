@@ -10,10 +10,13 @@ public class User {
 
     private String email;
 
-    public User(String username, long ID, String password, String email) {
+    public User(String username, long id, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
+    }
+
+    public User(String username, String encodedPassword, String email, String user) {
     }
 
     public long getId() {
