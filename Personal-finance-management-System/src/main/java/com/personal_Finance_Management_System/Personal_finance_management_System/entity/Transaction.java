@@ -1,5 +1,6 @@
 package com.personal_Finance_Management_System.Personal_finance_management_System.entity;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 public class Transaction {
